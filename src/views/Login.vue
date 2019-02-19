@@ -23,10 +23,16 @@ export default {
   },
   methods: {
     login(){
-      if (this.username === this.password) {
-        this.$session.start()
-        this.$session.set('username', this.username)
-        this.$router.push('/home')
+      if (this.username && this.password) {
+
+        if (this.username === this.password) {
+          this.$session.start()
+          this.$session.set('username', this.username)
+          this.$router.push('/home')
+        }
+        else {
+          console.log('Error')
+        }
       }
       else {
         console.log('Error')
